@@ -1,0 +1,36 @@
+/* ============================================================
+   SHARED BASIC STYLES
+   Small, simple styles reused across lots of different parts
+   of Pluridian — things like popup titles and status messages.
+   Nothing in this file is specific to any one feature.
+   ============================================================ */
+
+/* The big bold title at the top of every Pluridian popup window. */
+.pluridian-modal-title {
+	margin: 0 0 4px 0;
+}
+
+/* A smaller heading that introduces a new section inside a popup
+   (example: "Or choose a specific version:" in the updater). */
+.pluridian-subheading {
+	margin-top: var(--pluridian-spacing-lg);
+}
+
+/* Plain status text, like "Checking for updates..." — slightly
+   faded so it reads as informational rather than main content. */
+.pluridian-status-text {
+	opacity: 0.8;
+	color: var(--pluridian-text);
+}
+
+/* The small text showing which version of Pluridian is currently installed. */
+.pluridian-current-version {
+	font-size: 0.9em;
+	opacity: 0.7;
+}
+
+/* The row of buttons at the very bottom of a popup,
+   e.g. "Cancel" / "Save", or "Close". */
+.pluridian-modal-buttonrow {
+	margin-top: var(--pluridian-spacing-lg);
+}

@@ -1,0 +1,47 @@
+/* ============================================================
+   POPUP WINDOW STYLES
+   Styles specifically for the small popup windows Pluridian
+   opens on top of everything else — right now, that's the
+   "edit one folder path" window and its folder-picker list.
+   ============================================================ */
+
+/* The whole small popup window used to edit one setting's
+   value (opened by clicking "Edit" on a settings row). */
+.pluridian-field-edit-modal {
+	/* style the whole small edit popup here */
+}
+
+/* The big text box inside that popup where the folder path is
+   typed or pasted. Monospace font keeps it easy to read exactly. */
+.pluridian-field-textarea {
+	width: 100%;
+	font-family: var(--pluridian-font-mono);
+	font-size: 1em;
+	padding: var(--pluridian-spacing-sm);
+	box-sizing: border-box;
+	background: var(--pluridian-bg-secondary);
+	color: var(--pluridian-text);
+	border: 1px solid var(--pluridian-border-color);
+	border-radius: var(--pluridian-radius-md);
+}
+
+/* Each individual folder name shown in the "Browse Folders..."
+   picker list while searching for a folder to select. */
+.pluridian-folder-suggestion {
+	font-family: var(--pluridian-font-mono);
+	font-size: 0.9em;
+}
+
+
+/* ============================================================
+   ======== PHONE & TABLET VERSION — POPUP WINDOWS =============
+   Everything below this banner only applies on a phone or
+   tablet, not a laptop/desktop.
+   ============================================================ */
+
+/* On phones, make the folder-path text box slightly bigger —
+   small screens make small text harder to read and tap
+   accurately. */
+.is-phone .pluridian-field-textarea {
+	font-size: 1.05em;
+}

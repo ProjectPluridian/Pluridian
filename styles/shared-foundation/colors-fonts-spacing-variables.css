@@ -1,0 +1,59 @@
+/* ============================================================
+   COLORS, FONTS, AND SPACING VARIABLES
+   This file doesn't draw anything by itself. It just defines
+   named values (called "CSS variables") that every other
+   Pluridian style file uses, instead of typing raw colors,
+   sizes, etc. directly over and over.
+
+   WHY THIS MATTERS: this is what will eventually let a visual
+   settings menu change Pluridian's whole look by editing these
+   values in one place, instead of hunting through every file.
+
+   FUTURE NOTE ON PER-AREA OVERRIDES: right now every area shares
+   these same values directly. Later, areas like messaging or
+   headmate cards can define their OWN variable (for example
+   --pluridian-cards-font) that starts out equal to one of these
+   shared values, but can be changed independently without
+   affecting anything else that uses the shared version.
+   ============================================================ */
+
+body {
+	/* ---- COLORS ---- */
+	/* The main accent color (buttons, highlights) — matches whatever
+	   accent color the person's Obsidian theme already uses. */
+	--pluridian-accent: var(--interactive-accent);
+
+	/* Text color that stays readable on top of the accent color. */
+	--pluridian-accent-text: var(--text-on-accent);
+
+	/* The main background color of the app, from the person's theme. */
+	--pluridian-bg-primary: var(--background-primary);
+
+	/* A slightly different background color, for boxes that need
+	   to stand out a little from the main background. */
+	--pluridian-bg-secondary: var(--background-secondary);
+
+	/* The color used for thin lines that separate sections. */
+	--pluridian-border-color: var(--background-modifier-border);
+
+	/* Normal, everyday text color. */
+	--pluridian-text: var(--text-normal);
+
+	/* Slightly faded text color, for less important text like descriptions. */
+	--pluridian-text-muted: var(--text-muted);
+
+	/* ---- ROUNDED CORNERS ---- */
+	--pluridian-radius-sm: 6px;   /* small rounded corners, e.g. small buttons */
+	--pluridian-radius-md: 8px;   /* medium rounded corners, e.g. text boxes */
+	--pluridian-radius-lg: 14px;  /* large rounded corners, e.g. whole popups */
+
+	/* ---- SPACING (gaps, padding, margins) ---- */
+	--pluridian-spacing-sm: 6px;
+	--pluridian-spacing-md: 14px;
+	--pluridian-spacing-lg: 20px;
+
+	/* ---- FONTS ---- */
+	/* Monospace = evenly-spaced, typewriter-style font. Used for
+	   showing file paths so every character lines up predictably. */
+	--pluridian-font-mono: var(--font-monospace);
+}

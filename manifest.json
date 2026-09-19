@@ -1,0 +1,10 @@
+{
+"id": "pluridian",
+"name": "Pluridian",
+"version": "0.1.0",
+"minAppVersion": "0.15.0",
+"description": "An Obsidian plugin heavily oriented towards documenting plural systems' inner workings and mapping it visually nearly automatically.",
+"author": "ProjectPluridian",
+"authorUrl": "https://github.com/your-username",
+"isDesktopOnly": false
+}

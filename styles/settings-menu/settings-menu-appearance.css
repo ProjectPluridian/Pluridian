@@ -1,0 +1,76 @@
+/* ============================================================
+   SETTINGS MENU APPEARANCE
+   Styles for the settings screens themselves — both the
+   standalone popup version (opened by command/button) and the
+   version living inside Obsidian's own Settings tab. Both use
+   these exact same styles on purpose, so neither one ever
+   feels out of sync with the other.
+   ============================================================ */
+
+/* One full row in the settings screen, covering a single
+   setting (label, description, path preview, Edit button). */
+.pluridian-settings-row {
+	margin-bottom: var(--pluridian-spacing-lg);
+	padding-bottom: var(--pluridian-spacing-md);
+	border-bottom: 1px solid var(--pluridian-border-color);
+}
+
+/* The bold title of one setting, e.g. "Headmates folder". */
+.pluridian-settings-label {
+	font-weight: 700;
+}
+
+/* The smaller explanation text under a setting's title. */
+.pluridian-settings-desc {
+	font-size: 0.85em;
+	opacity: 0.7;
+	margin-bottom: var(--pluridian-spacing-sm);
+}
+
+/* The small box showing the CURRENTLY SAVED folder path for a
+   setting, before "Edit" is clicked. Monospace font keeps long
+   paths easy to read exactly as they're stored. */
+.pluridian-path-preview {
+	font-family: var(--pluridian-font-mono);
+	font-size: 0.85em;
+	background: var(--pluridian-bg-secondary);
+	padding: var(--pluridian-spacing-sm) 10px;
+	border-radius: var(--pluridian-radius-md);
+	word-break: break-all;
+	margin-bottom: var(--pluridian-spacing-sm);
+}
+
+/* The "Edit" button that opens the popup for changing one
+   setting. Currently plain/default-looking — style it here
+   later if you want it to stand out more. */
+.pluridian-edit-button {
+	/* style the Edit button here — e.g. background, padding, border-radius */
+}
+
+/* The "Browse Folders..." button inside the edit popup —
+   just needs a little space below it before the text box. */
+.pluridian-browse-btn {
+	margin-bottom: 10px;
+}
+
+
+/* ============================================================
+   ============ PHONE & TABLET VERSION — SETTINGS MENU =========
+   Everything below this banner only applies when Obsidian is
+   running on a phone or tablet, not a laptop/desktop. Obsidian
+   automatically adds .is-phone or .is-tablet to the whole app,
+   so these rules only "turn on" on the right device.
+   ============================================================ */
+
+/* On phones, tighten the spacing between settings rows a bit,
+   since phone screens are short and shouldn't force extra
+   scrolling to see everything. */
+.is-phone .pluridian-settings-row {
+	padding-bottom: var(--pluridian-spacing-sm);
+}
+
+/* On tablets specifically, shrink the folder-path preview text
+   just slightly so long paths wrap less awkwardly. */
+.is-tablet .pluridian-path-preview {
+	font-size: 0.95em;
+}

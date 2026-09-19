@@ -1,0 +1,15 @@
+/* ============================================================
+   SHARED PHONE & TABLET ADJUSTMENTS
+   This file is for phone/tablet rules that apply broadly
+   across MULTIPLE features at once — not specific to just
+   one screen or section.
+
+   Anything specific to ONE feature (like the settings menu,
+   or later, messaging or headmate cards) lives directly inside
+   that feature's own CSS file instead, in its own labeled
+   "PHONE & TABLET VERSION" section — see settings-menu-
+   appearance.css for an example of that pattern.
+
+   This file is currently empty on purpose. Nothing has needed
+   a truly universal mobile rule yet.
+   ============================================================ */
