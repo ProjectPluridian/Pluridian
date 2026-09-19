@@ -1,8 +1,242 @@
-/*
+/* ===== From: styles/shared-foundation/colors-fonts-spacing-variables.css ===== */
+/* ============================================================
+   COLORS, FONTS, AND SPACING VARIABLES
+   This file doesn't draw anything by itself. It just defines
+   named values (called "CSS variables") that every other
+   Pluridian style file uses, instead of typing raw colors,
+   sizes, etc. directly over and over.
 
-This CSS file will be included with your plugin, and
-available in the app when your plugin is enabled.
+   WHY THIS MATTERS: this is what will eventually let a visual
+   settings menu change Pluridian's whole look by editing these
+   values in one place, instead of hunting through every file.
 
-If your plugin does not need CSS, delete this file.
+   FUTURE NOTE ON PER-AREA OVERRIDES: right now every area shares
+   these same values directly. Later, areas like messaging or
+   headmate cards can define their OWN variable (for example
+   --pluridian-cards-font) that starts out equal to one of these
+   shared values, but can be changed independently without
+   affecting anything else that uses the shared version.
+   ============================================================ */
 
-*/
+body {
+	/* ---- COLORS ---- */
+	/* The main accent color (buttons, highlights) — matches whatever
+	   accent color the person's Obsidian theme already uses. */
+	--pluridian-accent: var(--interactive-accent);
+
+	/* Text color that stays readable on top of the accent color. */
+	--pluridian-accent-text: var(--text-on-accent);
+
+	/* The main background color of the app, from the person's theme. */
+	--pluridian-bg-primary: var(--background-primary);
+
+	/* A slightly different background color, for boxes that need
+	   to stand out a little from the main background. */
+	--pluridian-bg-secondary: var(--background-secondary);
+
+	/* The color used for thin lines that separate sections. */
+	--pluridian-border-color: var(--background-modifier-border);
+
+	/* Normal, everyday text color. */
+	--pluridian-text: var(--text-normal);
+
+	/* Slightly faded text color, for less important text like descriptions. */
+	--pluridian-text-muted: var(--text-muted);
+
+	/* ---- ROUNDED CORNERS ---- */
+	--pluridian-radius-sm: 6px;   /* small rounded corners, e.g. small buttons */
+	--pluridian-radius-md: 8px;   /* medium rounded corners, e.g. text boxes */
+	--pluridian-radius-lg: 14px;  /* large rounded corners, e.g. whole popups */
+
+	/* ---- SPACING (gaps, padding, margins) ---- */
+	--pluridian-spacing-sm: 6px;
+	--pluridian-spacing-md: 14px;
+	--pluridian-spacing-lg: 20px;
+
+	/* ---- FONTS ---- */
+	/* Monospace = evenly-spaced, typewriter-style font. Used for
+	   showing file paths so every character lines up predictably. */
+	--pluridian-font-mono: var(--font-monospace);
+}
+
+/* ===== From: styles/shared-foundation/shared-basic-styles.css ===== */
+/* ============================================================
+   SHARED BASIC STYLES
+   Small, simple styles reused across lots of different parts
+   of Pluridian — things like popup titles and status messages.
+   Nothing in this file is specific to any one feature.
+   ============================================================ */
+
+/* The big bold title at the top of every Pluridian popup window. */
+.pluridian-modal-title {
+	margin: 0 0 4px 0;
+}
+
+/* A smaller heading that introduces a new section inside a popup
+   (example: "Or choose a specific version:" in the updater). */
+.pluridian-subheading {
+	margin-top: var(--pluridian-spacing-lg);
+}
+
+/* Plain status text, like "Checking for updates..." — slightly
+   faded so it reads as informational rather than main content. */
+.pluridian-status-text {
+	opacity: 0.8;
+	color: var(--pluridian-text);
+}
+
+/* The small text showing which version of Pluridian is currently installed. */
+.pluridian-current-version {
+	font-size: 0.9em;
+	opacity: 0.7;
+}
+
+/* The row of buttons at the very bottom of a popup,
+   e.g. "Cancel" / "Save", or "Close". */
+.pluridian-modal-buttonrow {
+	margin-top: var(--pluridian-spacing-lg);
+}
+
+/* ===== From: styles/settings-menu/settings-menu-appearance.css ===== */
+/* ============================================================
+   SETTINGS MENU APPEARANCE
+   Styles for the settings screens themselves — both the
+   standalone popup version (opened by command/button) and the
+   version living inside Obsidian's own Settings tab. Both use
+   these exact same styles on purpose, so neither one ever
+   feels out of sync with the other.
+   ============================================================ */
+
+/* One full row in the settings screen, covering a single
+   setting (label, description, path preview, Edit button). */
+.pluridian-settings-row {
+	margin-bottom: var(--pluridian-spacing-lg);
+	padding-bottom: var(--pluridian-spacing-md);
+	border-bottom: 1px solid var(--pluridian-border-color);
+}
+
+/* The bold title of one setting, e.g. "Headmates folder". */
+.pluridian-settings-label {
+	font-weight: 700;
+}
+
+/* The smaller explanation text under a setting's title. */
+.pluridian-settings-desc {
+	font-size: 0.85em;
+	opacity: 0.7;
+	margin-bottom: var(--pluridian-spacing-sm);
+}
+
+/* The small box showing the CURRENTLY SAVED folder path for a
+   setting, before "Edit" is clicked. Monospace font keeps long
+   paths easy to read exactly as they're stored. */
+.pluridian-path-preview {
+	font-family: var(--pluridian-font-mono);
+	font-size: 0.85em;
+	background: var(--pluridian-bg-secondary);
+	padding: var(--pluridian-spacing-sm) 10px;
+	border-radius: var(--pluridian-radius-md);
+	word-break: break-all;
+	margin-bottom: var(--pluridian-spacing-sm);
+}
+
+/* The "Edit" button that opens the popup for changing one
+   setting. Currently plain/default-looking — style it here
+   later if you want it to stand out more. */
+.pluridian-edit-button {
+	/* style the Edit button here — e.g. background, padding, border-radius */
+}
+
+/* The "Browse Folders..." button inside the edit popup —
+   just needs a little space below it before the text box. */
+.pluridian-browse-btn {
+	margin-bottom: 10px;
+}
+
+
+/* ============================================================
+   ============ PHONE & TABLET VERSION — SETTINGS MENU =========
+   Everything below this banner only applies when Obsidian is
+   running on a phone or tablet, not a laptop/desktop. Obsidian
+   automatically adds .is-phone or .is-tablet to the whole app,
+   so these rules only "turn on" on the right device.
+   ============================================================ */
+
+/* On phones, tighten the spacing between settings rows a bit,
+   since phone screens are short and shouldn't force extra
+   scrolling to see everything. */
+.is-phone .pluridian-settings-row {
+	padding-bottom: var(--pluridian-spacing-sm);
+}
+
+/* On tablets specifically, shrink the folder-path preview text
+   just slightly so long paths wrap less awkwardly. */
+.is-tablet .pluridian-path-preview {
+	font-size: 0.95em;
+}
+
+/* ===== From: styles/settings-menu/popup-window-styles.css ===== */
+/* ============================================================
+   POPUP WINDOW STYLES
+   Styles specifically for the small popup windows Pluridian
+   opens on top of everything else — right now, that's the
+   "edit one folder path" window and its folder-picker list.
+   ============================================================ */
+
+/* The whole small popup window used to edit one setting's
+   value (opened by clicking "Edit" on a settings row). */
+.pluridian-field-edit-modal {
+	/* style the whole small edit popup here */
+}
+
+/* The big text box inside that popup where the folder path is
+   typed or pasted. Monospace font keeps it easy to read exactly. */
+.pluridian-field-textarea {
+	width: 100%;
+	font-family: var(--pluridian-font-mono);
+	font-size: 1em;
+	padding: var(--pluridian-spacing-sm);
+	box-sizing: border-box;
+	background: var(--pluridian-bg-secondary);
+	color: var(--pluridian-text);
+	border: 1px solid var(--pluridian-border-color);
+	border-radius: var(--pluridian-radius-md);
+}
+
+/* Each individual folder name shown in the "Browse Folders..."
+   picker list while searching for a folder to select. */
+.pluridian-folder-suggestion {
+	font-family: var(--pluridian-font-mono);
+	font-size: 0.9em;
+}
+
+
+/* ============================================================
+   ======== PHONE & TABLET VERSION — POPUP WINDOWS =============
+   Everything below this banner only applies on a phone or
+   tablet, not a laptop/desktop.
+   ============================================================ */
+
+/* On phones, make the folder-path text box slightly bigger —
+   small screens make small text harder to read and tap
+   accurately. */
+.is-phone .pluridian-field-textarea {
+	font-size: 1.05em;
+}
+
+/* ===== From: styles/screen-size-adjustments/phone-and-tablet-adjustments.css ===== */
+/* ============================================================
+   SHARED PHONE & TABLET ADJUSTMENTS
+   This file is for phone/tablet rules that apply broadly
+   across MULTIPLE features at once — not specific to just
+   one screen or section.
+
+   Anything specific to ONE feature (like the settings menu,
+   or later, messaging or headmate cards) lives directly inside
+   that feature's own CSS file instead, in its own labeled
+   "PHONE & TABLET VERSION" section — see settings-menu-
+   appearance.css for an example of that pattern.
+
+   This file is currently empty on purpose. Nothing has needed
+   a truly universal mobile rule yet.
+   ============================================================ */
